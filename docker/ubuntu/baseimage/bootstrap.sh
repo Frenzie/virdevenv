@@ -10,7 +10,7 @@ ARM_HF_TC="gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf"
 TC_BUILD_DEPS="gperf help2man bison texinfo flex gawk libncurses5-dev"
 LIB32_GCC_DEV="lib32gcc-4.8-dev libx32gcc1 libx32gomp1 libx32itm1 "`
              `"libx32atomic1 libx32asan0 libx32quadmath0 libc6-x32"
-MISC_TOOLS="git subversion zip unzip vim wget p7zip-full bash-completion"
+MISC_TOOLS="sudo git subversion zip unzip vim wget p7zip-full bash-completion"
 LUAJIT_DEPS="$LIB32_GCC_DEV libc6-dev-amd64:i386"
 GLIB_DEPS="gettext"
 
@@ -18,6 +18,11 @@ echo " ------------------------------------------"
 echo "| installing dependencies..."
 echo "| $LUAJIT_DEPS "
 echo " ------------------------------------------"
+
+# build-essential depends on gcc 5.4 which apparently won't be installed
+# combined in one statement with gcc-4.8
+apt-get install -y build-essential
+
 apt-get install -y \
 	$MISC_TOOLS \
 	build-essential dpkg-dev python-setuptools \
@@ -29,5 +34,5 @@ apt-get install -y \
 	$LUAJIT_DEPS \
 	libsdl2-dev
 
-sudo easy_install pip
-sudo pip install transifex-client
+easy_install pip
+pip install transifex-client
