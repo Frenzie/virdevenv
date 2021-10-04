@@ -1,8 +1,8 @@
-FROM koreader/kobase:0.2.0
+FROM koreader/kobase:0.3.0
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-USER root
+#USER root
 COPY clang12.list /etc/apt/sources.list.d/clang12.list
 RUN apt-get remove gcc gcc-8 -y \
     && wget --progress=dot:giga -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add - \
@@ -15,4 +15,4 @@ RUN apt-get remove gcc gcc-8 -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-USER ko
+#USER ko

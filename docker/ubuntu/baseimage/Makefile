@@ -1,9 +1,9 @@
-VERSION=0.2.1
+VERSION=0.3.0
 
 all: build
 
 build: Dockerfile bootstrap.sh
-	docker build --rm=true -t $(USER)/kobase:$(VERSION) .
+	docker build --rm=true --no-cache -t $(USER)/kobase:$(VERSION) .
 
 shell:
 	docker run --detach-keys "ctrl-q,ctrl-q" --rm -t -i $(USER)/kobase:$(VERSION) bash -l

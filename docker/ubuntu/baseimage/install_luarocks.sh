@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-HOME=/home/ko
-
-cd $HOME || exit
-
 git clone https://github.com/torch/luajit-rocks.git
 pushd luajit-rocks && {
     git checkout 2c7496b905f6f972673effda4884766433b7583b

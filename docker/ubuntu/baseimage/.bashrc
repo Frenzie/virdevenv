@@ -1,7 +1,5 @@
 #!/bin/bash
 
-HOME=/home/ko
-
 # shellcheck source=/dev/null
 . /etc/bash_completion
 
